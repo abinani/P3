@@ -9,6 +9,12 @@
 </head>
 <body role="document" style="padding-top: 20px;">
     <div class="container" role="main">
+      <div class="header">
+        <ul class="nav nav-pills ">
+          <li><a href="/welcome" class="btn btn-link" role="button">Home</a></li>
+        </ul>
+      </div>
+
        @yield('content') 
     </div>
 
