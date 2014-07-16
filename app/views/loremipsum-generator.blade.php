@@ -29,24 +29,9 @@
 
 @section('footer')
 @if ( isset($paras) && count($paras) > 0)
-    <div id="loremipsum-modal" class="modal fade" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="loremipsum-dismiss">&times;</button>
-                    <h4 class="modal-title">Lorem Ipsum</h4>
-                </div>
-                <div class="modal-body">
-                   {{implode('<p><br/>', $paras); }}
-                </div>
-            </div>
-        </div> 
-    </div>
-
-    <script type="text/javascript">
-    $(window).load(function(){
-        $('#loremipsum-modal').modal({show:true, keyboard: true});
-    });
-    </script>
+   @section('modal-body')
+     {{implode('<p><br/>', $paras); }}
+   @stop
+   @include("_modalwindow", array("name" => "loremipsum", "title" => "Lorem Ipsum"))
 @endif
 @stop

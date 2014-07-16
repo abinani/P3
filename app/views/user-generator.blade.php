@@ -42,30 +42,21 @@
 
 @section('footer')
 @if ( isset($users) && count($users) > 0)
-    <div id="user-modal" class="modal fade" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="user-dismiss">&times;</button>
-                    <h4 class="modal-title">Random users</h4>
-                </div>
-                <div class="modal-body">
-                @foreach ($users as $user)
-                    <dl>
-                      <dt>{{ $user['name'] }}</dt>
-                        @if (array_key_exists('bday', $user))
-                          <dd>{{ $user['bday'] }}</dd>
-                        @endif 
-                        @if (array_key_exists('profile', $user))
-                          <dd><em>{{ $user['profile'] }}</em></dd>
-                        @endif 
-                    </dl>
-                    </br>
-                @endforeach
-                </div>
-            </div>
-        </div> 
-    </div>
+   @section('modal-body')
+    @foreach ($users as $user)
+        <dl>
+          <dt>{{ $user['name'] }}</dt>
+            @if (array_key_exists('bday', $user))
+              <dd>{{ $user['bday'] }}</dd>
+            @endif 
+            @if (array_key_exists('profile', $user))
+              <dd><em>{{ $user['profile'] }}</em></dd>
+            @endif 
+        </dl>
+        </br>
+    @endforeach
+   @stop
+   @include("_modalwindow", array("name" => "loremipsum", "title" => "Lorem Ipsum"))
 
     <script type="text/javascript">
     $(window).load(function(){
